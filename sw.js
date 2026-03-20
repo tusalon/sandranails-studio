@@ -1,22 +1,22 @@
-// sw.js - Service Worker para Nail's YEY93
+// sw.js - Service Worker para Sandra Nails Studio
 
-const CACHE_NAME = 'nails-yey93-v1';
+const CACHE_NAME = 'sandra-nails-studio-v1';
 const urlsToCache = [
-  '/nailsyey/',
-  '/nailsyey/index.html',
-  '/nailsyey/admin.html',
-  '/nailsyey/admin-login.html',
-  '/nailsyey/setup-wizard.html',
-  '/nailsyey/editar-negocio.html',
-  '/nailsyey/manifest.json',
-  '/nailsyey/icons/icon-72x72.png',
-  '/nailsyey/icons/icon-96x96.png',
-  '/nailsyey/icons/icon-128x128.png',
-  '/nailsyey/icons/icon-144x144.png',
-  '/nailsyey/icons/icon-152x152.png',
-  '/nailsyey/icons/icon-192x192.png',
-  '/nailsyey/icons/icon-384x384.png',
-  '/nailsyey/icons/icon-512x512.png'
+  '/sandranails-studio/',
+  '/sandranails-studio/index.html',
+  '/sandranails-studio/admin.html',
+  '/sandranails-studio/admin-login.html',
+  '/sandranails-studio/setup-wizard.html',
+  '/sandranails-studio/editar-negocio.html',
+  '/sandranails-studio/manifest.json',
+  '/sandranails-studio/icons/icon-72x72.png',
+  '/sandranails-studio/icons/icon-96x96.png',
+  '/sandranails-studio/icons/icon-128x128.png',
+  '/sandranails-studio/icons/icon-144x144.png',
+  '/sandranails-studio/icons/icon-152x152.png',
+  '/sandranails-studio/icons/icon-192x192.png',
+  '/sandranails-studio/icons/icon-384x384.png',
+  '/sandranails-studio/icons/icon-512x512.png'
 ];
 
 // ============================================
@@ -108,7 +108,7 @@ self.addEventListener('fetch', event => {
           }
           // Si no hay cache y es imagen, devolver icon por defecto
           if (event.request.url.match(/\.(jpg|jpeg|png|gif|svg|webp)$/)) {
-            return caches.match('/nailsyey/icons/icon-192x192.png');
+            return caches.match('/sandranails-studio/icons/icon-192x192.png');
           }
           return new Response('Error de red', { status: 408 });
         });
@@ -138,6 +138,6 @@ self.addEventListener('message', event => {
   }
 });
 
-console.log('✅ Service Worker configurado para Nail\'s YEY93');
+console.log('✅ Service Worker configurado para Sandra Nails Studio');
 console.log('📦 Cache:', CACHE_NAME);
 console.log('📄 Archivos a cachear:', urlsToCache.length);
